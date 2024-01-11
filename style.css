@@ -1,0 +1,26 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background: linear-gradient(rgb(22, 149, 240), pink);
+}
+.logo{
+    width: 120px;
+}
+.navbar{
+    background: linear-gradient(pink,rgb(8, 138, 231));
+}
+footer{
+    background: linear-gradient(rgb(22, 149, 240), pink);
+    margin-top: 50px;
+    
+}
+section{
+    padding-top: 50px;
+}
+button .btn .btn-bg{
+    background: linear-gradient(rgb(22, 149, 240), pink); 
+}
