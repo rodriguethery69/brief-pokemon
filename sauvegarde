@@ -31,3 +31,96 @@
                             href="battle">Battle</a>
                     </li>
                 </ul>
+
+
+                foreach ($medecins as $value) {
+                    echo '<div class="col">
+                    <div class="card border-0">
+                        <img src="" class="card-img-top rounded-0" alt="">
+                        <div class="card-body">
+                            <p class="fw-bold">JEUDI 11 JANVIER</p>
+                            <h4 class="card-title text-uppercase fw-bold"></h4>
+                            <p class="card-text">' . $value['description'] . '</p>
+                            <p class="card-link2 fw-bold text-decoration-none text-black text-uppercase position-relative">' . $value['prix'] . '</p>
+                        </div>
+                    </div>
+                </div>';
+                    
+                }
+                ?>
+
+
+                body{
+                    background-image: url(assets/img/centre.png);
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                } 
+                
+                
+
+
+                <?php 
+    require_once dirname(__DIR__) . ('/function/potions.fn.php');
+    
+    $typesPotions = array_unique(array_column($potions, 'type'));
+    $selectedType = isset($_GET['type']) ? $_GET['type'] : 'all';
+?>
+
+<!-- Formulaire pour sélectionner le type de potion -->
+<form method="get" action="">
+    <label for="type">Choisir le type de potion : </label>
+    <select name="type" id="type" onchange="this.form.submit()">
+        <option value="all" <?= ($selectedType === 'all') ? 'selected' : ''; ?>>Toutes les potions</option>
+        <?php foreach ($typesPotions as $type) { ?>
+            <option value="<?= $type ?>" <?= ($selectedType === $type) ? 'selected' : ''; ?>><?= $type ?></option>
+        <?php } ?>
+    </select>
+    <noscript><input type="submit" value="Filtrer"></noscript>
+</form>
+
+<div class="row">
+    <?php foreach ($potions as $potion) { 
+        if ($selectedType === 'all' || $potion['type'] === $selectedType) {
+    ?>
+            <div class="col-md-4 mb-4">
+                <div class="card border-0">
+                    <img src="<?= $potion['path_Potion'] ?>" class="card-img-top rounded-0" alt="">
+                    <div class="card-body text-center">
+                        <p class="fw-bold"><?= $potion['titre']; ?></p>
+                        <h4 class="card-title text-uppercase fw-bold"><?= $potion['type']; ?></h4>
+                        <p class="card-text"><?= $potion['description']; ?></p>
+                        <p class="card-link2 fw-bold text-decoration-none text-black text-uppercase position-relative"><?= $potion['prix']; ?> Poke$</p>
+                    </div>
+                </div>
+            </div>
+    <?php 
+        }
+    } 
+    ?>
+</div>
+
+
+
+
+<?php 
+    require_once dirname(__DIR__) . ('/function/potions.fn.php');
+    
+?>
+
+<div class="row">
+    <?php foreach ($potions as $potion) { ?>
+        <div class="col-md-4 mb-4">
+            <div class="card border-0">
+                <!-- Utilisez le chemin de l'image directement depuis la jointure -->
+                <img src="<?= $potion['path_Potion'] ?>" class="card-img-top rounded-0" alt="">
+                <div class="card-body text-center">
+                    <p class="fw-bold"><?= $potion['titre']; ?></p>
+                    <!-- Affichez le type de potion -->
+                    <h4 class="card-title text-uppercase fw-bold"><?= $potion['type']; ?></h4>
+                    <p class="card-text"><?= $potion['description']; ?></p>
+                    <p class="card-link2 fw-bold text-decoration-none text-black text-uppercase position-relative"><?= $potion['prix']; ?> Poke$</p>
+                </div>
+            </div>
+        </div>
+    <?php } ?>
+</div>

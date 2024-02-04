@@ -5,6 +5,10 @@ $onglets = [
         'href'   => 'index.php',
     ],
     [
+        'onglet' => 'Medecins',
+        'href'   => 'medecins.php',
+    ],
+    [
         'onglet' => 'Potions',
         'href'   => 'potions.php',
     ],

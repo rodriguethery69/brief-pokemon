@@ -1,12 +1,21 @@
 <?php 
 $tabslider = [
     [
-        'titre' => 'medecin2',
+        'titre' => 'pokemon1',
     ],
     [
-        'titre' => 'medecin3',
+        'titre' => 'pokemon2',
     ],
     [
-        'titre' => 'medecin4',
+        'titre' => 'pokemon3',
+    ],
+    [
+        'titre' => 'pokemon4',
+    ],
+    [
+        'titre' => 'pokemon5',
+    ],
+    [
+        'titre' => 'pokemon6',
     ],
 ];
