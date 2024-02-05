@@ -1,17 +1,13 @@
 <?php 
-        require_once dirname(__DIR__) . ('/function/medecins.fn.php');
-        
- ?>
-
-
-
+    require_once dirname(__DIR__) . ('/function/medecins.fn.php'); 
+?>
 
 <div class="row">
     <?php foreach ($medecins as $medecin) { ?>
         <div class="col-md-4 mb-4">
             <div class="card border-0">
                 <!-- Utilisez le chemin de l'image directement depuis la jointure -->
-                <img src="<?= $medecin['path_Med'] ?>" class="card-img-top rounded-0" alt="">
+                <img src="<?= $medecin['path_Med'] ?>" class="card-img-top rounded-3" alt="">
                 <div class="card-body text-center">
                     <p class="fw-bold"><?= $medecin['titre']; ?></p>
                     <h4 class="card-title text-uppercase fw-bold"></h4>

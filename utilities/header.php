@@ -37,7 +37,7 @@
                 <div class="collapse navbar-collapse h-md-100" id="navbarSupportedContent">
                     <div class="">
                         <ul class="navbar-nav mb-2 mb-lg-0 h-100 px-2 ">
-                        <?php include 'navbar.php'; ?>
+                        <?php require_once dirname (__DIR__) . "/navphp/navbar.php"; ?>                      
                         </ul>  
                     </div>
                 </div>

@@ -13,7 +13,7 @@ require_once __DIR__ . ('/utilities/header.php');
                     <div class="carousel-item active">
                         <img src="/assets/img/pokemon7.jpg" class="d-block w-100 img-fluide" alt="...">
                     </div>
-                    <?php include 'php/slider.php'; ?>
+                    <?php include 'sliderphp/slider.php'; ?>
                 </div>
             </div>
             <div class="mx-5"></div>

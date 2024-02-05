@@ -7,7 +7,7 @@
     <main>
         <!-- cards -->
         <section class="container-md w-66 m-auto">
-            <?php require_once __DIR__ . ('/php/bouclecardmed.php'); ?>
+            <?php require_once __DIR__ . ('/bouclephp/bouclecardmed.php'); ?>
         </section>
     </main>
     

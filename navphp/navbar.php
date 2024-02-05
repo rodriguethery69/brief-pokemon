@@ -1,4 +1,4 @@
-<?php include 'php/onglets.php'; ?>
+<?php include 'onglets.php'; ?>
 <?php
 foreach ($onglets as $value) {
     echo '<li class="nav-item py-3 me-3">

@@ -124,3 +124,74 @@
         </div>
     <?php } ?>
 </div>
+
+
+
+
+
+function findPotionByID($db, $currentId){
+
+// Requête SQL pour sélectionner des informations spécifiques sur un film par ID
+$sql = "SELECT 
+p.id, p.titre, p.description, p.prix,  
+FROM `potions` AS p";
+
+// Exécute la requête sur la base de données
+$requete = $db->query($sql);
+
+// Récupère le premier résultat de la requête
+$potion = $requete->fetch();
+
+// Retourne les informations du film
+return $potion;
+
+}
+
+
+
+
+
+if ($selectedType === 'all' || $potion['nom_type'] === $selectedType) {
+    ?>
+            <div class="col-md-4 mb-4">
+                <div class="card border-0">
+                    <img src="<?= $potion['path_Potion'] ?>" class="card-img-top rounded-0" alt="">
+                    <div class="card-body text-center">
+                        <p class="fw-bold"><?= $potion['titre']; ?></p>
+                        <p class="card-text"><?= $potion['description']; ?></p>
+                        <p class="card-link2 fw-bold text-decoration-none text-black text-uppercase position-relative"><?= $potion['prix']; ?> Poke$</p>
+                    </div>
+                </div>
+            </div>
+    <?php 
+        }
+    } 
+    ?>
+</div>
+
+
+
+
+$selectedType = isset($_GET['nom_type']) ? $_GET['nom_type'] : 'all';
+
+
+<option value="1 or 2 or 3 or 4 or 5 or 6" <?= ($selectedType === 'all') ? 'selected' : ''; ?>>Toutes les potions</option>
+        <option value="1" <?= ($selectedType === 'plantes') ? 'selected' : ''; ?>>Les Potions Plantes</option>
+        <option value="2" <?= ($selectedType === 'eaux') ? 'selected' : ''; ?>>Les Potions Eaux</option>
+        <option value="3" <?= ($selectedType === 'feu') ? 'selected' : ''; ?>>Les Potions Feu</option>
+        <option value="4" <?= ($selectedType === 'electrique') ? 'selected' : ''; ?>>Les Potions Electrique</option>
+        <option value="5" <?= ($selectedType === 'glace') ? 'selected' : ''; ?>>Les Potions Glace</option>
+        <option value="6" <?= ($selectedType === 'fee') ? 'selected' : ''; ?>>Les Potions Fée</option>
+
+
+
+
+        <footer class="fw-bold fs-5 container-fluid w-100 p-4 m-auto position-relative"> 
+    <div class="d-flex align-items-center">
+        <img class="logo" src="assets/img/logo.png" alt="">
+        <div class= "justify-content-center">
+            <p class="position-absolute translate-middle start-50 text-center btn btn-danger btn-outline-dark text-white fs-5 fw-bold text-uppercase">COPYRIGHT 2024</p>
+        </div>
+            <div></div>
+    </div>
+</footer>
