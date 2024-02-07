@@ -1,6 +1,6 @@
 <?php
 function findAllPotions($db) { 
-    // Requête SQL pour sélectionner tous les champs de la table 'movies'
+    // Requête SQL pour sélectionner tous les champs de la table 'potions'
     $sql = "SELECT * FROM potions";
 
     // Exécute la requête sur la base de données
@@ -13,7 +13,7 @@ function findAllPotions($db) {
     return $result;
 }
 function findTypePotion($db, $type_id) { 
-    // Requête SQL pour sélectionner tous les champs de la table 'movies'
+    // Requête SQL pour sélectionner tous les champs de la table 'potions'
     $sql = "SELECT * FROM potions WHERE type_id = $type_id";
     
     // Exécute la requête sur la base de données
@@ -47,21 +47,22 @@ function findPotionByID($db, $currentId){
 }
 
 function getButtonColorClass($type_id) {
+    // Utilisation d'une instruction switch pour déterminer la classe de couleur en fonction de l'identifiant de type
     switch ($type_id) {
         case 1:
-            return 'btn-success'; // Couleur pour le type 1 (Les Potions Plantes)
+            return 'btn-success'; // Retourne la classe de couleur pour le type 1 (Potions Plantes)
         case 2:
-            return 'btn-primary'; // Couleur pour le type 2 (Les Potions Eaux)
+            return 'btn-primary'; // Retourne la classe de couleur pour le type 2 (Potions Eaux)
         case 3:
-            return 'btn-danger'; // Couleur pour le type 3 (Les Potions Feu)
+            return 'btn-danger'; // Retourne la classe de couleur pour le type 3 (Potions Feu)
         case 5:
-            return 'btn-warning'; // Couleur pour le type 5 (Les Potions Electrique)
+            return 'btn-warning'; // Retourne la classe de couleur pour le type 5 (Potions Electrique)
         case 4:
-            return 'btn-info'; // Couleur pour le type 4 (Les Potions Glace)
+            return 'btn-info'; // Retourne la classe de couleur pour le type 4 (Potions Glace)
         case 6:
-            return 'btn-danger'; // Couleur pour le type 6 (Les Potions Fée)
+            return 'btn-danger'; // Retourne la classe de couleur pour le type 6 (Potions Fée)
         default:
-            return 'btn-secondary'; // Couleur par défaut
+            return 'btn-secondary'; // Retourne une classe de couleur par défaut si l'identifiant de type n'est pas reconnu
     }
 }
 

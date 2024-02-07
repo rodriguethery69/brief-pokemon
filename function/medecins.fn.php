@@ -1,8 +1,8 @@
 <?php
 
-// Fonction pour récupérer tous les films de la base de données
+// Fonction pour récupérer tous les Medecins de la base de données
 function findAllMedecins($db) { 
-    // Requête SQL pour sélectionner tous les champs de la table 'movies'
+    // Requête SQL pour sélectionner tous les champs de la table 'medecins'
     $sql = "SELECT * FROM medecins";
 
     // Exécute la requête sur la base de données
@@ -17,7 +17,7 @@ function findAllMedecins($db) {
 
 function findMedecinByID($db, $currentId){
 
-    // Requête SQL pour sélectionner des informations spécifiques sur un film par ID
+    // Requête SQL pour sélectionner des informations spécifiques sur un Medecin par ID
    $sql = "SELECT 
    m.id, m.titre, m.description, m.specialite, 
    m.age 
@@ -29,7 +29,7 @@ function findMedecinByID($db, $currentId){
    // Récupère le premier résultat de la requête
    $medecin = $requete->fetch();
 
-   // Retourne les informations du film
+   // Retourne les informations du Medecin
    return $medecin;
  
 }
