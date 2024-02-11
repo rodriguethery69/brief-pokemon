@@ -195,3 +195,6 @@ $selectedType = isset($_GET['nom_type']) ? $_GET['nom_type'] : 'all';
             <div></div>
     </div>
 </footer>
+
+
+<p class="position-absolute translate-middle start-50 text-center btn btn-danger btn-outline-dark text-white fs-5 fw-bold text-uppercase">COPYRIGHT 2024</p>

@@ -8,6 +8,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css"> <!-- lien vers la feuille de style -->
+    <script src="script.js"></script>
     <link rel="shortcut icon" href="/assets/favicon/favicon.png" type="image/x-icon"> <!-- lien vers l'icône du site -->
     <!-- lien vers Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -21,9 +22,7 @@
         <nav class="navbar navbar-expand-xl">
             <div class="container-fluid h-100">
                 <!-- logo de la navbar -->
-                <a class="navbar-brand" href="#">
-                    <img class="logo" src="assets/img/logo.png" alt="logo">
-                </a>
+                <div class="pokeball"></div>
                 <!-- menu burger -->
                 <button class="navbar-toggler h-100" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"

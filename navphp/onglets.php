@@ -16,6 +16,9 @@ $onglets = [
         'onglet' => 'Contact',
         'href'   => 'form.php',
     ],
+    [   'onglet' => 'Ajout',
+        'href'   => 'ajout.php',
+    ],
     [
         'onglet' => 'Battle',
         'href'   => 'battle',

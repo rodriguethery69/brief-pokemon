@@ -4,12 +4,22 @@
     padding: 0;
     box-sizing: border-box;
 }
-
-.logo{
-    width: 150px;
+@keyframes defilement {
+    from { background-position: 0 0; }
+    to { background-position: 100% 0; }
 }
+
+.navbar {
+    background-image: url(assets/img/banniere.jpg);
+    height: 150px;
+    background-size: auto 100%; /* Ajustez la taille de l'image selon vos besoins */
+    background-repeat: repeat-x; /* Répéter l'image horizontalement */
+    animation: defilement 60s linear infinite; /* Réglages de l'animation */
+}
+
 .navbar{
-    background-image: url(assets/img/banniere.jpg);  
+    background-image: url(assets/img/banniere.jpg);
+    height: 150px;
 }
 
 body {
@@ -17,9 +27,7 @@ body {
     background-size: cover;
     background-position: center;
 }
-footer{
-    background-image: url(assets/img/banniere.jpg);
-}
+
 
 #carouselExampleSlidesOnly {
     border-radius: 10px;
@@ -31,3 +39,87 @@ section{
 button .btn .btn-bg{
     background: linear-gradient(rgb(22, 149, 240), pink); 
 }
+.loading {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 25%; /* Positionnez l'élément en dehors de l'écran à droite */
+    animation: moveLeft 25s linear infinite; /* Utilisez une animation nommée "moveLeft" */
+}
+
+.loading img {
+    display: block;
+    min-height: 150px;
+    min-width: 150px;
+    padding-top: calc(50% - 255px);
+}
+
+/* Définissez l'animation "moveLeft" */
+@keyframes moveLeft {
+    0% {
+        transform: translateX(100%); /* Début de l'animation : positionné en dehors de l'écran à droite */
+    }
+    100% {
+        transform: translateX(-100%); /* Fin de l'animation : positionné en dehors de l'écran à gauche */
+    }
+}
+.pokeball {
+    display: block;
+    width: 100px; /* Ajustez la largeur comme désiré */
+    height: 100px; /* Ajustez la hauteur comme désiré */
+    background: radial-gradient(
+        white 8px,
+        black 9px 10px,
+        white 11px 12px,
+        black 13px 16px,
+        transparent 17px
+      ),
+      linear-gradient(to bottom, red 0 40px, black 41px 48px, white 49px 50%);
+    border-radius: 50%;
+    border: 4px solid black; /* Ajustez l'épaisseur de la bordure si nécessaire */
+    box-shadow: inset -8px -4px 0 0 rgba(0, 0, 0, 0.2);
+    animation: fall 0.5s ease-in-out 1s,
+      shake 1.25s cubic-bezier(0.36, 0.07, 0.19, 0.97) 1.5s 3,
+      catch 0.5s ease-out 5.25s forwards;
+}
+  /* Animation */
+  @keyframes shake {
+    0% {
+      transform: translateX(0) rotate(0);
+    }
+    20% {
+      transform: translateX(-10px) rotate(-20deg);
+    }
+    30% {
+      transform: translateX(10px) rotate(20deg);
+    }
+    50% {
+      transform: translateX(-10px) rotate(-10deg);
+    }
+    60% {
+      transform: translateX(10px) rotate(10deg);
+    }
+    100% {
+      transform: translateX(0) rotate(0);
+    }
+  }
+  @keyframes fall {
+    0% {
+      transform: translateY(-200%);
+    }
+    60% {
+      transform: translateY(0);
+    }
+    80% {
+      transform: translateY(-10%);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  @keyframes catch {
+    to {
+      filter: saturate(0.8) brightness(0.8);
+    }
+  }
+  
