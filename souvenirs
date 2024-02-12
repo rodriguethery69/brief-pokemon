@@ -1,0 +1,197 @@
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="/img/medecin2.jpg" class="d-block w-100 img-fluide" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="/img/medecin3.jpg" class="d-block w-100 img-fluide" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="img/medecin4.jpg" class="d-block w-100 img-fluide" alt="...">
+                    </div>
+                </div>
+
+
+
+
+                <ul class="navbar-nav mb-2 mb-lg-0 h-100 px-2 ">
+                    <li class="nav-item py-3">
+                        <a class="nav-link active text-dark fs-5 fw-bold" aria-current="page"
+                            href="index.php">Accueil</a>
+                    </li>
+                    <li class="nav-item py-3">
+                        <a class="nav-link active text-dark fs-5 fw-bold" aria-current="page"
+                            href="potions.php">Potions</a>
+                    </li>
+                    <li class="nav-item py-3">
+                        <a class="nav-link active text-dark fs-5 fw-bold" aria-current="page"
+                            href="form.php">Contact</a>
+                    </li>
+                    <li class="nav-item py-3">
+                        <a class="nav-link active text-dark fs-5 fw-bold" aria-current="page"
+                            href="battle">Battle</a>
+                    </li>
+                </ul>
+
+
+                foreach ($medecins as $value) {
+                    echo '<div class="col">
+                    <div class="card border-0">
+                        <img src="" class="card-img-top rounded-0" alt="">
+                        <div class="card-body">
+                            <p class="fw-bold">JEUDI 11 JANVIER</p>
+                            <h4 class="card-title text-uppercase fw-bold"></h4>
+                            <p class="card-text">' . $value['description'] . '</p>
+                            <p class="card-link2 fw-bold text-decoration-none text-black text-uppercase position-relative">' . $value['prix'] . '</p>
+                        </div>
+                    </div>
+                </div>';
+                    
+                }
+                ?>
+
+
+                body{
+                    background-image: url(assets/img/centre.png);
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                } 
+                
+                
+
+
+                <?php 
+    require_once dirname(__DIR__) . ('/function/potions.fn.php');
+    
+    $typesPotions = array_unique(array_column($potions, 'type'));
+    $selectedType = isset($_GET['type']) ? $_GET['type'] : 'all';
+?>
+
+<!-- Formulaire pour sélectionner le type de potion -->
+<form method="get" action="">
+    <label for="type">Choisir le type de potion : </label>
+    <select name="type" id="type" onchange="this.form.submit()">
+        <option value="all" <?= ($selectedType === 'all') ? 'selected' : ''; ?>>Toutes les potions</option>
+        <?php foreach ($typesPotions as $type) { ?>
+            <option value="<?= $type ?>" <?= ($selectedType === $type) ? 'selected' : ''; ?>><?= $type ?></option>
+        <?php } ?>
+    </select>
+    <noscript><input type="submit" value="Filtrer"></noscript>
+</form>
+
+<div class="row">
+    <?php foreach ($potions as $potion) { 
+        if ($selectedType === 'all' || $potion['type'] === $selectedType) {
+    ?>
+            <div class="col-md-4 mb-4">
+                <div class="card border-0">
+                    <img src="<?= $potion['path_Potion'] ?>" class="card-img-top rounded-0" alt="">
+                    <div class="card-body text-center">
+                        <p class="fw-bold"><?= $potion['titre']; ?></p>
+                        <h4 class="card-title text-uppercase fw-bold"><?= $potion['type']; ?></h4>
+                        <p class="card-text"><?= $potion['description']; ?></p>
+                        <p class="card-link2 fw-bold text-decoration-none text-black text-uppercase position-relative"><?= $potion['prix']; ?> Poke$</p>
+                    </div>
+                </div>
+            </div>
+    <?php 
+        }
+    } 
+    ?>
+</div>
+
+
+
+
+<?php 
+    require_once dirname(__DIR__) . ('/function/potions.fn.php');
+    
+?>
+
+<div class="row">
+    <?php foreach ($potions as $potion) { ?>
+        <div class="col-md-4 mb-4">
+            <div class="card border-0">
+                <!-- Utilisez le chemin de l'image directement depuis la jointure -->
+                <img src="<?= $potion['path_Potion'] ?>" class="card-img-top rounded-0" alt="">
+                <div class="card-body text-center">
+                    <p class="fw-bold"><?= $potion['titre']; ?></p>
+                    <!-- Affichez le type de potion -->
+                    <h4 class="card-title text-uppercase fw-bold"><?= $potion['type']; ?></h4>
+                    <p class="card-text"><?= $potion['description']; ?></p>
+                    <p class="card-link2 fw-bold text-decoration-none text-black text-uppercase position-relative"><?= $potion['prix']; ?> Poke$</p>
+                </div>
+            </div>
+        </div>
+    <?php } ?>
+</div>
+
+
+
+
+
+function findPotionByID($db, $currentId){
+
+// Requête SQL pour sélectionner des informations spécifiques sur un film par ID
+$sql = "SELECT 
+p.id, p.titre, p.description, p.prix,  
+FROM `potions` AS p";
+
+// Exécute la requête sur la base de données
+$requete = $db->query($sql);
+
+// Récupère le premier résultat de la requête
+$potion = $requete->fetch();
+
+// Retourne les informations du film
+return $potion;
+
+}
+
+
+
+
+
+if ($selectedType === 'all' || $potion['nom_type'] === $selectedType) {
+    ?>
+            <div class="col-md-4 mb-4">
+                <div class="card border-0">
+                    <img src="<?= $potion['path_Potion'] ?>" class="card-img-top rounded-0" alt="">
+                    <div class="card-body text-center">
+                        <p class="fw-bold"><?= $potion['titre']; ?></p>
+                        <p class="card-text"><?= $potion['description']; ?></p>
+                        <p class="card-link2 fw-bold text-decoration-none text-black text-uppercase position-relative"><?= $potion['prix']; ?> Poke$</p>
+                    </div>
+                </div>
+            </div>
+    <?php 
+        }
+    } 
+    ?>
+</div>
+
+
+
+
+$selectedType = isset($_GET['nom_type']) ? $_GET['nom_type'] : 'all';
+
+
+<option value="1 or 2 or 3 or 4 or 5 or 6" <?= ($selectedType === 'all') ? 'selected' : ''; ?>>Toutes les potions</option>
+        <option value="1" <?= ($selectedType === 'plantes') ? 'selected' : ''; ?>>Les Potions Plantes</option>
+        <option value="2" <?= ($selectedType === 'eaux') ? 'selected' : ''; ?>>Les Potions Eaux</option>
+        <option value="3" <?= ($selectedType === 'feu') ? 'selected' : ''; ?>>Les Potions Feu</option>
+        <option value="4" <?= ($selectedType === 'electrique') ? 'selected' : ''; ?>>Les Potions Electrique</option>
+        <option value="5" <?= ($selectedType === 'glace') ? 'selected' : ''; ?>>Les Potions Glace</option>
+        <option value="6" <?= ($selectedType === 'fee') ? 'selected' : ''; ?>>Les Potions Fée</option>
+
+
+
+
+        <footer class="fw-bold fs-5 container-fluid w-100 p-4 m-auto position-relative"> 
+    <div class="d-flex align-items-center">
+        <img class="logo" src="assets/img/logo.png" alt="">
+        <div class= "justify-content-center">
+            <p class="position-absolute translate-middle start-50 text-center btn btn-danger btn-outline-dark text-white fs-5 fw-bold text-uppercase">COPYRIGHT 2024</p>
+        </div>
+            <div></div>
+    </div>
+</footer>
