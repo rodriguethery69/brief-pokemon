@@ -9,6 +9,6 @@
                     <a class="btn btn-danger btn-outline-dark" href="' . $value['href'] . '">
                         <span class="text-white fs-5 fw-bold text-uppercase">' . $value['onglet'] . '</span>
                     </a>
-            </li>';
+                </li>';
     }
 ?>

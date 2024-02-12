@@ -2,26 +2,26 @@
 $onglets = [
     [
         'onglet' => 'Accueil',
-        'href'   => 'index.php',
+        'href'   => '/index.php',
     ],
     [
         'onglet' => 'Medecins',
-        'href'   => 'medecins.php',
+        'href'   => '/medecins.php',
     ],
     [
         'onglet' => 'Potions',
-        'href'   => 'potions.php',
+        'href'   => '/potions.php',
     ],
     [
         'onglet' => 'Contact',
-        'href'   => 'form.php',
+        'href'   => '/form.php',
     ],
     [   'onglet' => 'Insert',
-        'href'   => 'insert.php',
+        'href'   => 'addpotion/add.php',
     ],
     [
         'onglet' => 'Battle',
-        'href'   => 'battle',
+        'href'   => '/battle',
     ],
 
 ];

@@ -3,6 +3,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    z-index: 4;
 }
 @keyframes defilement {
     from { background-position: 0 0; }
@@ -52,6 +53,7 @@ button .btn .btn-bg{
     min-height: 150px;
     min-width: 150px;
     padding-top: calc(50% - 255px);
+    z-index: 2;
 }
 
 /* Définissez l'animation "moveLeft" */

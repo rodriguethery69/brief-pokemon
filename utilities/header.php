@@ -7,7 +7,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css"> <!-- lien vers la feuille de style -->
+    <link rel="stylesheet" href="../style.css"> <!-- lien vers la feuille de style -->
     <script src="script.js"></script>
     <link rel="shortcut icon" href="/assets/favicon/favicon.png" type="image/x-icon"> <!-- lien vers l'icône du site -->
     <!-- lien vers Bootstrap -->
@@ -34,7 +34,7 @@
                     <div class="">
                         <!-- inclusion du contenu du menu depuis un fichier PHP -->
                         <ul class="navbar-nav mb-2 mb-lg-0 h-100 px-2 ">
-                            <?php require_once dirname (__DIR__) . "/navphp/navbar.php"; ?>
+                            <?php require_once dirname(__DIR__) . "/navphp/navbar.php"; ?>
                         </ul>  
                     </div>
                 </div>
