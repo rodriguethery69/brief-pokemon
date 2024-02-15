@@ -1,16 +1,15 @@
 <?php
 require_once dirname(__DIR__) . "/utilities/header.php"; // Inclusion du fichier d'en-tête
 
-if (isset($_POST['update'])) {
+if (isset($_POST['Bouton'])) {
     $ID = $_POST['ID'];
     $titre = $_POST['titre'];
     $description = $_POST['description'];
     $prix = $_POST['prix'];
-    $image = '/assets/potion/plante/' . $_POST['path_Potion'];
+    $image = $_POST['path_Potion'];
     $type_id = $_POST['type_id'];
 
-    echo "ID: $ID, Titre: $titre, Description: $description, Prix: $prix, Image: $image, Type ID: $type_id";
-    $sql = "UPDATE potions SET `titre` = '$titre' WHERE ID = $ID";
+    $sql = "UPDATE potions SET `titre` = '$titre', `description` = '$description', `prix` = '$prix', `type_id` = '$type_id' WHERE ID = $ID";
    
     $db->query($sql);
 
@@ -29,12 +28,19 @@ $results = $stpo->fetchALL();
                 <div class="card-body text-center">
                     <label for="titre" class="form-label">titre</label>
                     <input type="text" class="form-control" id="titre" name="titre">
-                    <label for="validationDefault02" class="form-label">description</label>
-                    <input type="text" class="form-control" id="validationDefault02" name="description">
-                    <label for="validationDefault02" class="form-label">prix</label>
-                    <input type="text" class="form-control" id="validationDefault02" name="prix">
-                    <label for="validationDefault02" class="form-label">Potion Image</label>
-                    <input type="text" class="form-control" id="validationDefault02" name="path_Potion">
+
+                    <label for="description" class="form-label">description</label>
+                    <input type="text" class="form-control" id="description" name="description">
+
+                    <label for="prix" class="form-label">prix</label>
+                    <input type="number" class="form-control" id="prix" name="prix">
+
+                    <label for="file">Fichier</label>
+                    <input type="file" name="path_Potion">
+
+                    <label for="type_id" class="form-label">type_id</label>
+                    <input type="number" class="form-control" id="type_id" name="type_id">
+
                     <label for="validationDefault02" class="form-label">Numero Potion</label>
                     <select class="form-select" aria-label="Default select example" name="ID">
                         <option selected>Sélectionne le Numero</option>
@@ -46,7 +52,7 @@ $results = $stpo->fetchALL();
                         <?php endforeach; ?>
                     </select>
                     <button class="text-center btn btn-primary btn-outline-dark text-white fs-5 fw-bold text-uppercase"
-                        type="submit">Update</button>
+                        type="submit" name="Bouton" value="Modifier"></button>
                 </div>
             </div>
         </form>
