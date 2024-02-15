@@ -22,7 +22,7 @@ $results = $stpo->fetchALL();
 <section class="container-md d-flex justify-content-center align-item-center">
     <div class="col-md-4 mb-4">
         <form method="POST">
-            <div class="card border-0">
+            <div class="card border-0 p-1">
                 <img src="../assets/img/update.jpg" class="card-img-top rounded-3" alt="">
                 <h3 class="card-title text-uppercase fw-bold text-center">Update</h3>
                 <div class="card-body text-center">

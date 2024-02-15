@@ -22,8 +22,8 @@ $results = $stpo->fetchALL();
 ?>
 <section class="container-md d-flex justify-content-center align-item-center">
     <div class="col-md-4">
-        <form method="POST" action="#">
-            <div class="card border-0 h-100 rounded-4">
+        <form method="POST" action="#" enctype="multipart/form-data">
+            <div class="card border-0 h-100 rounded-4 p-1">
                 <!-- Image et titre de la carte -->
                 <img src="../assets/img/ajout.jpg" class="card-img-top rounded-3" alt="">
                 <h3 class="card-title text-uppercase fw-bold text-center">Ajout</h3>
@@ -41,6 +41,7 @@ $results = $stpo->fetchALL();
                     <!-- Champ pour sélectionner un fichier (image de la potion) -->
                     <label for="file">Fichier</label>
                     <input type="file" name="path_Potion">
+                    <button type="submit">Enregistrer</button>
                     <!-- Sélection du type de potion -->
                     <select class="form-select" aria-label="Default select example" name="type_id">
                         <option selected>Sélectionne le Type</option>

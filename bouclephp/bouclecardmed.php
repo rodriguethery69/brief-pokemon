@@ -6,7 +6,7 @@
 <div class="row">
     <?php foreach ($medecins as $medecin) { ?>
         <div class="col-md-4 mb-4">
-            <div class="card border-0">
+            <div class="card border-0 p-1">
                 <!-- Affichage de l'image du médecin -->
                 <img src="<?= $medecin['path_Med'] ?>" class="card-img-top rounded-3" alt="">
                 <div class="card-body text-center">

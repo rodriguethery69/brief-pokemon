@@ -2,7 +2,7 @@
     <?php foreach ($result as $potion) { ?>
         <!-- Début d'une carte pour chaque potion -->
         <div class="col-md-4 mb-4">
-            <div class="card border-0 rounded-4 h-100">
+            <div class="card border-0 rounded-4 h-100 p-1">
                 <!-- Image de la potion -->
                 <img src="<?= $potion['path_Potion'] ?>" class="card-img-top rounded-4" alt="">
                 <div class="card-body text-center">
