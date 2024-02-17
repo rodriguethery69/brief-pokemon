@@ -5,7 +5,7 @@
         <p class="position-absolute translate-middle start-50 text-center btn btn-danger btn-outline-dark text-white fs-5 fw-bold text-uppercase">COPYRIGHT 2024</p>
         </div>
     <div class="loading">
-            <img src="/assets/gif/pika.gif" alt="Loading">
+           <!-- <img src="/assets/gif/pika.gif" alt="Loading">-->
     </div>
 </footer>
 

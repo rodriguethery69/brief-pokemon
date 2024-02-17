@@ -17,7 +17,7 @@ $onglets = [
         'href'   => '/form.php',
     ],
     [   'onglet' => 'Insert',
-        'href'   => 'addpotion/add.php',
+        'href'   => 'Crud/add.php',
     ],
     [
         'onglet' => 'Battle',
