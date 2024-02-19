@@ -12,6 +12,20 @@ function findAllPotions($db) {
     // Retourne le résultat
     return $result;
 }
+function findAllPotionsGenres($db) { 
+    // Requête SQL pour sélectionner tous les champs de la table 'potions'
+    $sql = "SELECT potions.ID AS ID, potions.titre, potions.description, potions.prix, typespotions.nom_type FROM `potions` LEFT JOIN `typespotions` ON potions.type_id = typespotions.ID";
+
+    // Exécute la requête sur la base de données
+    $requete = $db->query($sql);
+
+    // Récupère tous les résultats de la requête
+    $result = $requete->fetchAll();
+
+    // Retourne le résultat
+    return $result;
+}
+
 function findTypePotion($db, $type_id) { 
     // Requête SQL pour sélectionner tous les champs de la table 'potions'
     $sql = "SELECT * FROM potions WHERE type_id = $type_id";

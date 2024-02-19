@@ -36,25 +36,34 @@ if (isset($_POST['ID']) && $_POST['ID'] != 'Sélectionne le Numero') {
 ?>
 
 <section class="container-md d-flex justify-content-center align-item-center">
-    <div class="col-md-4 mb-4">
-        <form method="POST">
+    <!-- Début d'une colonne de taille moyenne -->
+    <div class="col-md-4 mb-4"> 
+        <form method="POST"> <!-- Début du formulaire avec méthode POST -->
             <div class="card border-0 p-1">
+
+                <!-- Image de la carte, si une potion est sélectionnée, elle est affichée, sinon une image de mise à jour est affichée -->
                 <img src="<?php echo !empty($selectedPotion['path_Potion']) ? $selectedPotion['path_Potion'] : '../assets/img/update.jpg'; ?>" class="card-img-top rounded-3" alt="">
+                
                 <h3 class="card-title text-uppercase fw-bold text-center">Update</h3>
                 <div class="card-body text-center">
-                    <!-- Afficher les champs du formulaire avec les détails de la potion sélectionnée -->
+
+                    <!-- Champ de saisie pour le titre, pré-rempli avec le titre de la potion sélectionnée si disponible sinon, une chaîne vide sera utilisée.-->
                     <label for="titre" class="form-label">Titre</label>
                     <input type="text" class="form-control" id="titre" name="titre" value="<?php echo isset($selectedPotion['titre']) ? $selectedPotion['titre'] : ''; ?>">
-
+                    
+                    <!-- Champ de saisie pour la description, pré-rempli avec la description de la potion sélectionnée si disponible sinon, une chaîne vide sera utilisée.-->
                     <label for="description" class="form-label">Description</label>
                     <input type="text" class="form-control" id="description" name="description" value="<?php echo isset($selectedPotion['description']) ? $selectedPotion['description'] : ''; ?>">
 
+                    <!-- Champ de saisie pour le prix, pré-rempli avec le prix de la potion sélectionnée si disponible sinon, une chaîne vide sera utilisée.-->
                     <label for="prix" class="form-label">Prix</label>
                     <input type="number" class="form-control" id="prix" name="prix" value="<?php echo isset($selectedPotion['prix']) ? $selectedPotion['prix'] : ''; ?>">
 
+                    <!-- Champ de saisie pour l'image, pré-rempli avec l'image de la potion sélectionnée si disponible sinon, une chaîne vide sera utilisée.-->
                     <label for="file">Fichier</label>
                     <input type="file" name="path_Potion" value="<?php echo isset($selectedPotion['path_Potion']) ? $selectedPotion['path_Potion'] : ''; ?>">
 
+                    <!-- Champ de saisie pour le genre, pré-rempli avec le genre de la potion sélectionnée si disponible sinon, une chaîne vide sera utilisée.-->
                     <label for="type_id" class="form-label">Type ID</label>
                     <input type="number" class="form-control" id="type_id" name="type_id" value="<?php echo isset($selectedPotion['type_id']) ? $selectedPotion['type_id'] : ''; ?>">
 
@@ -78,5 +87,3 @@ if (isset($_POST['ID']) && $_POST['ID'] != 'Sélectionne le Numero') {
 </section>
 
 <?php require_once dirname(__DIR__) . "/utilities/footer.php"; // Inclusion du footer ?>
-
-
