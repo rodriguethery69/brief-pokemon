@@ -8,6 +8,7 @@
 <section class="container-md d-flex justify-content-center align-item-center">
     <div class="col-md-4">
         <form method="POST" action="update.php">
+        <input type="hidden" id="ID" name="ID" value="<?php echo $_GET['id']?>" />
             <div class="card border-0 h-100 rounded-4 p-1">
                 <!-- Corps de la carte avec les champs de saisie -->
                 <div class="card-body text-center">
@@ -22,19 +23,10 @@
                     <!-- Champ pour la description de la potion -->
                     <label for="validationDefault02" class="form-label">Description</label>
                     <textarea class="form-control" id="description" name="description" rows="10" cols="33"><?= $potion['description'] ?></textarea>         
-
-                    <!-- Sélection du type de potion -->
-                    <select class="form-select" aria-label="Default select example" name="type_id">
-                        <option selected>Sélectionne le Type</option>
-                        <!-- Boucle pour afficher les options -->
-                        <?php foreach ($results as $result): ?>
-                            <option value="<?= $result["ID"] ?>">
-                                <?= $result["nom_type"] ?>
-                            </option>
-                        <?php endforeach; ?>
-                    </select>
                     <!-- Bouton pour ajouter la potion -->
-                    <button name="editer"
+                    <select class=" form-select border border-dark" aria-label="Default select example" name="nom_type">
+                    <option selected>Sélectionne le Genre</option>
+                    <button
                         class="text-center btn btn-success btn-outline-dark text-white fs-5 fw-bold text-uppercase"
                         type="submit">Mettre à jour</button>
                 </div>
@@ -42,3 +34,4 @@
         </form>
     </div>
 </section>
+<?php require_once dirname(__DIR__) . "/utilities/footer.php"; // Inclusion du footer  ?>

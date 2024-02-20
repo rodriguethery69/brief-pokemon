@@ -19,9 +19,7 @@
             <a class="btn btn-primary" href="edit.php?id=<?php echo $potion['ID']; ?>">Editer</a>
         </td>
         <td>
-            <button type="button" class="btn btn-danger btn-sm px-3">
-                <i class="fas fa-times"></i>
-            </button>
+        <a class="btn btn-danger" href="delete.php?id=<?php echo $potion['ID']; ?>">Supprimer</a>
         </td>
     </tr>
 

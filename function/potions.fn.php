@@ -1,5 +1,6 @@
 <?php
-function findAllPotions($db) { 
+function findAllPotions($db)
+{
     // Requête SQL pour sélectionner tous les champs de la table 'potions'
     $sql = "SELECT * FROM potions";
 
@@ -12,7 +13,8 @@ function findAllPotions($db) {
     // Retourne le résultat
     return $result;
 }
-function findAllPotionsGenres($db) { 
+function findAllPotionsGenres($db)
+{
     // Requête SQL pour sélectionner tous les champs de la table 'potions'
     $sql = "SELECT potions.ID AS ID, potions.titre, potions.description, potions.prix, typespotions.nom_type FROM `potions` LEFT JOIN `typespotions` ON potions.type_id = typespotions.ID";
 
@@ -26,10 +28,11 @@ function findAllPotionsGenres($db) {
     return $result;
 }
 
-function findTypePotion($db, $type_id) { 
+function findTypePotion($db, $type_id)
+{
     // Requête SQL pour sélectionner tous les champs de la table 'potions'
     $sql = "SELECT * FROM potions WHERE type_id = $type_id";
-    
+
     // Exécute la requête sur la base de données
     $requete = $db->query($sql);
 
@@ -40,7 +43,8 @@ function findTypePotion($db, $type_id) {
     return $result;
 }
 
-function findPotionByID($db, $currentId){
+function findPotionByID($db, $currentId)
+{
 
     // Requête SQL pour sélectionner des informations spécifiques sur une potion par ID
     $sql = "SELECT 
@@ -48,7 +52,9 @@ function findPotionByID($db, $currentId){
     FROM 
         `potions` AS p
     JOIN 
-        `typespotions` AS tp ON p.type_id = tp.id";
+        `typespotions` AS tp ON p.type_id = tp.id
+        
+    WHERE p.ID = $currentId";
 
     // Exécute la requête sur la base de données
     $requete = $db->query($sql);
@@ -60,7 +66,21 @@ function findPotionByID($db, $currentId){
     return $potion;
 }
 
-function getButtonColorClass($type_id) {
+function updatePotion($db, $currentId)
+{
+    $sql = "UPDATE `potions` SET `ID`='[value-1]',`titre`='[value-2]',`description`='[value-3]',`prix`='[value-4]',`path_Potion`='[value-5]',`type_id`='[value-6]'
+    WHERE id = $currentId";
+
+    $requete = $db->query($sql);
+
+    $update = $requete->fetch();
+
+    return $update;
+}
+
+
+function getButtonColorClass($type_id)
+{
     // Utilisation d'une instruction switch pour déterminer la classe de couleur en fonction de l'identifiant de type
     switch ($type_id) {
         case 1:
